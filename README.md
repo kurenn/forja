@@ -17,7 +17,7 @@ A Rails application template that gives you a production-ready foundation with a
 ## Quick Start
 
 ```bash
-rails new myapp -d postgresql --css=tailwind -m ~/workspace/workspace/forja/template.rb
+rails new myapp -d postgresql --css=tailwind -m https://raw.githubusercontent.com/kurenn/forja/main/template.rb
 ```
 
 That's it. One command. The template handles everything:
