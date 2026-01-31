@@ -1,0 +1,68 @@
+<div data-controller="modal"
+     data-modal-id-value="<%= id %>"
+     class="hidden"
+     data-modal-target="container">
+  <dialog id="<%= id %>"
+          aria-labelledby="<%= id %>-title"
+          data-modal-target="dialog"
+          class="fixed inset-0 z-50 size-auto max-h-none max-w-none overflow-y-auto bg-transparent backdrop:bg-transparent">
+    
+    <!-- Backdrop -->
+    <div class="fixed inset-0 bg-gray-500/75 dark:bg-gray-900/50 animate__animated animate__fadeIn animate__faster"
+         data-modal-target="backdrop"
+         data-action="click->modal#close">
+    </div>
+
+    <!-- Modal Container -->
+    <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+      <!-- Modal Panel -->
+      <div class="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl sm:my-8 sm:w-full <%= panel_size_class %> sm:p-6 dark:bg-gray-800 dark:outline dark:-outline-offset-1 dark:outline-white/10 animate__animated animate__fadeInUp animate__faster"
+           data-modal-target="panel"
+           role="dialog"
+           aria-modal="true">
+        
+        <% if icon %>
+          <div>
+            <div class="mx-auto flex size-12 items-center justify-center rounded-full <%= icon_bg_class %>">
+              <svg viewBox="0 0 24 24"
+                   fill="none"
+                   stroke="currentColor"
+                   stroke-width="1.5"
+                   aria-hidden="true"
+                   class="size-6 <%= icon_color_class %>">
+                <%= icon_svg %>
+              </svg>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="<%= 'mt-3 sm:mt-5' if icon %>">
+          <% if title_content %>
+            <h3 id="<%= id %>-title" 
+                class="text-base font-semibold text-gray-900 dark:text-white <%= 'text-center' if icon %>">
+              <%= title_content %>
+            </h3>
+          <% end %>
+
+          <% if body? || content.present? %>
+            <div class="<%= 'mt-2' if title_content %>">
+              <% if body? %>
+                <%= body %>
+              <% else %>
+                <div class="text-sm text-gray-500 dark:text-gray-400">
+                  <%= content %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+
+        <% if actions? %>
+          <div class="mt-5 sm:mt-6">
+            <%= actions %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </dialog>
+</div>

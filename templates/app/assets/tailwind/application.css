@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: 'Instrument Serif', serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  /* Light mode: warm beige/cream tones (like the Oatmeal design) */
+  --color-olive-50: oklch(98.5% 0.005 90);
+  --color-olive-100: oklch(96% 0.008 90);
+  --color-olive-200: oklch(92% 0.012 90);
+  --color-olive-300: oklch(86% 0.016 90);
+  --color-olive-400: oklch(70% 0.020 90);
+  --color-olive-500: oklch(55% 0.022 90);
+  --color-olive-600: oklch(45% 0.020 90);
+  --color-olive-700: oklch(38% 0.018 90);
+  --color-olive-800: oklch(28% 0.014 90);
+  --color-olive-900: oklch(22% 0.012 90);
+  --color-olive-950: oklch(14% 0.008 90);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-olive-100);
+    --scroll-padding-top: 0;
+    scroll-padding-top: var(--scroll-padding-top);
+  }
+  
+  html.dark {
+    background-color: var(--color-olive-950);
+  }
+}

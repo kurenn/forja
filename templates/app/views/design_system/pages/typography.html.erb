@@ -1,0 +1,112 @@
+<% content_for :title, 'Typography' %>
+
+<div>
+  <h1 class="text-4xl font-display font-bold text-olive-900 dark:text-olive-100">
+    Typography
+  </h1>
+  <p class="text-lg text-olive-700 dark:text-olive-300 mt-4">
+    Our type system uses Inter for interface text and Instrument Serif for display.
+  </p>
+
+  <div class="mt-12">
+    <h2 class="text-2xl font-display font-bold text-olive-900 dark:text-olive-100 mb-6">
+      Font Families
+    </h2>
+    <div class="space-y-6">
+      <div class="bg-white dark:bg-olive-950 rounded-lg border border-olive-200 dark:border-olive-800 p-6">
+        <p class="text-sm font-medium text-olive-600 dark:text-olive-400 mb-2">Sans-serif (Inter)</p>
+        <p class="text-3xl font-sans text-olive-900 dark:text-olive-100">
+          The quick brown fox jumps over the lazy dog
+        </p>
+        <code class="text-xs text-olive-600 dark:text-olive-400 mt-2 block">font-sans</code>
+      </div>
+
+      <div class="bg-white dark:bg-olive-950 rounded-lg border border-olive-200 dark:border-olive-800 p-6">
+        <p class="text-sm font-medium text-olive-600 dark:text-olive-400 mb-2">Display (Instrument Serif)</p>
+        <p class="text-3xl font-display text-olive-900 dark:text-olive-100">
+          The quick brown fox jumps over the lazy dog
+        </p>
+        <code class="text-xs text-olive-600 dark:text-olive-400 mt-2 block">font-display</code>
+      </div>
+
+      <div class="bg-white dark:bg-olive-950 rounded-lg border border-olive-200 dark:border-olive-800 p-6">
+        <p class="text-sm font-medium text-olive-600 dark:text-olive-400 mb-2">Monospace</p>
+        <p class="text-xl font-mono text-olive-900 dark:text-olive-100">
+          const greeting = "Hello, World!";
+        </p>
+        <code class="text-xs text-olive-600 dark:text-olive-400 mt-2 block">font-mono</code>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-12">
+    <h2 class="text-2xl font-display font-bold text-olive-900 dark:text-olive-100 mb-6">
+      Type Scale
+    </h2>
+    <div class="space-y-4">
+      <div class="bg-white dark:bg-olive-950 rounded-lg border border-olive-200 dark:border-olive-800 p-6">
+        <p class="text-4xl font-display font-bold text-olive-900 dark:text-olive-100">Heading 1</p>
+        <code class="text-xs text-olive-600 dark:text-olive-400 mt-2 block">text-4xl font-display font-bold</code>
+      </div>
+
+      <div class="bg-white dark:bg-olive-950 rounded-lg border border-olive-200 dark:border-olive-800 p-6">
+        <p class="text-3xl font-display font-bold text-olive-900 dark:text-olive-100">Heading 2</p>
+        <code class="text-xs text-olive-600 dark:text-olive-400 mt-2 block">text-3xl font-display font-bold</code>
+      </div>
+
+      <div class="bg-white dark:bg-olive-950 rounded-lg border border-olive-200 dark:border-olive-800 p-6">
+        <p class="text-2xl font-display font-bold text-olive-900 dark:text-olive-100">Heading 3</p>
+        <code class="text-xs text-olive-600 dark:text-olive-400 mt-2 block">text-2xl font-display font-bold</code>
+      </div>
+
+      <div class="bg-white dark:bg-olive-950 rounded-lg border border-olive-200 dark:border-olive-800 p-6">
+        <p class="text-xl font-semibold text-olive-900 dark:text-olive-100">Heading 4</p>
+        <code class="text-xs text-olive-600 dark:text-olive-400 mt-2 block">text-xl font-semibold</code>
+      </div>
+
+      <div class="bg-white dark:bg-olive-950 rounded-lg border border-olive-200 dark:border-olive-800 p-6">
+        <p class="text-lg font-semibold text-olive-900 dark:text-olive-100">Heading 5</p>
+        <code class="text-xs text-olive-600 dark:text-olive-400 mt-2 block">text-lg font-semibold</code>
+      </div>
+
+      <div class="bg-white dark:bg-olive-950 rounded-lg border border-olive-200 dark:border-olive-800 p-6">
+        <p class="text-base text-olive-900 dark:text-olive-100">Body text with regular weight for comfortable reading.</p>
+        <code class="text-xs text-olive-600 dark:text-olive-400 mt-2 block">text-base</code>
+      </div>
+
+      <div class="bg-white dark:bg-olive-950 rounded-lg border border-olive-200 dark:border-olive-800 p-6">
+        <p class="text-sm text-olive-700 dark:text-olive-300">Small text for secondary information and captions.</p>
+        <code class="text-xs text-olive-600 dark:text-olive-400 mt-2 block">text-sm</code>
+      </div>
+
+      <div class="bg-white dark:bg-olive-950 rounded-lg border border-olive-200 dark:border-olive-800 p-6">
+        <p class="text-xs text-olive-600 dark:text-olive-400">Extra small text for labels and metadata.</p>
+        <code class="text-xs text-olive-600 dark:text-olive-400 mt-2 block">text-xs</code>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-12">
+    <h2 class="text-2xl font-display font-bold text-olive-900 dark:text-olive-100 mb-6">
+      Font Weights
+    </h2>
+    <div class="bg-white dark:bg-olive-950 rounded-lg border border-olive-200 dark:border-olive-800 divide-y divide-olive-200 dark:divide-olive-800">
+      <div class="p-4 flex items-center justify-between">
+        <span class="text-xl font-normal text-olive-900 dark:text-olive-100">Normal (400)</span>
+        <code class="text-xs text-olive-600 dark:text-olive-400">font-normal</code>
+      </div>
+      <div class="p-4 flex items-center justify-between">
+        <span class="text-xl font-medium text-olive-900 dark:text-olive-100">Medium (500)</span>
+        <code class="text-xs text-olive-600 dark:text-olive-400">font-medium</code>
+      </div>
+      <div class="p-4 flex items-center justify-between">
+        <span class="text-xl font-semibold text-olive-900 dark:text-olive-100">Semibold (600)</span>
+        <code class="text-xs text-olive-600 dark:text-olive-400">font-semibold</code>
+      </div>
+      <div class="p-4 flex items-center justify-between">
+        <span class="text-xl font-bold text-olive-900 dark:text-olive-100">Bold (700)</span>
+        <code class="text-xs text-olive-600 dark:text-olive-400">font-bold</code>
+      </div>
+    </div>
+  </div>
+</div>

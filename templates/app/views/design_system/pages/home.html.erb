@@ -1,0 +1,104 @@
+<% content_for :title, 'Overview' %>
+
+<div class="prose prose-olive dark:prose-invert max-w-none">
+  <h1 class="text-4xl font-display font-bold text-olive-900 dark:text-olive-100">
+    Design System
+  </h1>
+  <p class="text-lg text-olive-700 dark:text-olive-300 mt-4">
+    A comprehensive component library built with ViewComponent, Hotwire, and the Oatmeal olive color scheme.
+  </p>
+
+  <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 not-prose">
+    <!-- Components Card -->
+    <div class="bg-white dark:bg-olive-900 rounded-lg border border-olive-200 dark:border-olive-800 p-6">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg font-semibold text-olive-900 dark:text-olive-100">Components</h3>
+        <svg class="h-6 w-6 text-olive-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4zM14 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z" />
+        </svg>
+      </div>
+      <p class="text-sm text-olive-700 dark:text-olive-300 mb-4">
+        Reusable ViewComponents for building consistent UIs.
+      </p>
+      <%= link_to 'Browse Components',
+                  design_system_components_path,
+                  class: 'text-sm font-medium text-olive-600 hover:text-olive-700 dark:text-olive-400' %>
+    </div>
+
+    <!-- Colors Card -->
+    <div class="bg-white dark:bg-olive-900 rounded-lg border border-olive-200 dark:border-olive-800 p-6">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg font-semibold text-olive-900 dark:text-olive-100">Colors</h3>
+        <svg class="h-6 w-6 text-olive-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+        </svg>
+      </div>
+      <p class="text-sm text-olive-700 dark:text-olive-300 mb-4">
+        Oatmeal olive color palette with dark mode support.
+      </p>
+      <%= link_to 'View Palette',
+                  design_system_colors_path,
+                  class: 'text-sm font-medium text-olive-600 hover:text-olive-700 dark:text-olive-400' %>
+    </div>
+
+    <!-- Typography Card -->
+    <div class="bg-white dark:bg-olive-900 rounded-lg border border-olive-200 dark:border-olive-800 p-6">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg font-semibold text-olive-900 dark:text-olive-100">Typography</h3>
+        <svg class="h-6 w-6 text-olive-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+      </div>
+      <p class="text-sm text-olive-700 dark:text-olive-300 mb-4">
+        Inter and Instrument Serif font system.
+      </p>
+      <%= link_to 'View Typography',
+                  design_system_typography_path,
+                  class: 'text-sm font-medium text-olive-600 hover:text-olive-700 dark:text-olive-400' %>
+    </div>
+  </div>
+
+  <div class="mt-12">
+    <h2 class="text-2xl font-display font-bold text-olive-900 dark:text-olive-100">
+      Quick Start
+    </h2>
+    <p class="text-olive-700 dark:text-olive-300 mt-4">
+      Components are built with ViewComponent and follow SOLID principles. Each component accepts keyword arguments for configuration and <code class="bg-olive-100 dark:bg-olive-800 px-1.5 py-0.5 rounded text-sm">**options</code> for HTML attributes.
+    </p>
+
+    <div class="mt-6 bg-olive-900 dark:bg-olive-950 rounded-lg p-6 not-prose">
+      <pre class="text-sm text-olive-100 overflow-x-auto"><code>&lt;%= render ButtonComponent.new(variant: :solid) do %&gt;
+  Click me
+&lt;% end %&gt;</code></pre>
+    </div>
+  </div>
+
+  <div class="mt-12">
+    <h2 class="text-2xl font-display font-bold text-olive-900 dark:text-olive-100">
+      Component Categories
+    </h2>
+    <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 not-prose">
+      <div class="p-4 bg-white dark:bg-olive-900 rounded-lg border border-olive-200 dark:border-olive-800">
+        <h3 class="font-semibold text-olive-900 dark:text-olive-100">UI Components</h3>
+        <p class="text-sm text-olive-600 dark:text-olive-400 mt-1">Buttons, badges, modals, and more</p>
+      </div>
+      <div class="p-4 bg-white dark:bg-olive-900 rounded-lg border border-olive-200 dark:border-olive-800">
+        <h3 class="font-semibold text-olive-900 dark:text-olive-100">Form Components</h3>
+        <p class="text-sm text-olive-600 dark:text-olive-400 mt-1">Inputs, selects, checkboxes, and more</p>
+      </div>
+      <div class="p-4 bg-white dark:bg-olive-900 rounded-lg border border-olive-200 dark:border-olive-800">
+        <h3 class="font-semibold text-olive-900 dark:text-olive-100">Layout Components</h3>
+        <p class="text-sm text-olive-600 dark:text-olive-400 mt-1">Sidebars, navbars, and page layouts</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-12">
+    <h2 class="text-2xl font-display font-bold text-olive-900 dark:text-olive-100">
+      Development Only
+    </h2>
+    <p class="text-olive-700 dark:text-olive-300 mt-4">
+      This design system documentation is only available in development mode. It will return a 404 error in production.
+    </p>
+  </div>
+</div>
