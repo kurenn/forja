@@ -1,0 +1,6 @@
+<%# Global flash notification container %>
+<% if flash.any? %>
+  <% flash.each do |type, message| %>
+    <%= render FlashComponent.new(type: type, message: message) %>
+  <% end %>
+<% end %>

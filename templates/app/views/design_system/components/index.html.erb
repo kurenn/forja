@@ -1,0 +1,100 @@
+<% content_for :title, 'Components' %>
+
+<div>
+  <h1 class="text-4xl font-display font-bold text-olive-900 dark:text-olive-100">
+    Components
+  </h1>
+  <p class="text-lg text-olive-700 dark:text-olive-300 mt-4">
+    Browse all available ViewComponents in the library.
+  </p>
+
+  <!-- UI Components -->
+  <div class="mt-12">
+    <h2 class="text-2xl font-display font-bold text-olive-900 dark:text-olive-100 mb-6">
+      UI Components
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <% @components.select { |_, c| c[:category] == 'UI' }.each do |key, component| %>
+        <%= link_to design_system_component_path(name: key),
+                    class: 'block bg-white dark:bg-olive-900 rounded-lg border border-olive-200 dark:border-olive-800 p-6 hover:border-olive-400 dark:hover:border-olive-600 transition-colors' do %>
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-lg font-semibold text-olive-900 dark:text-olive-100">
+                <%= component[:name] %>
+              </h3>
+              <p class="text-sm text-olive-500 dark:text-olive-400 mt-1">
+                <%= component[:class_name] %>
+              </p>
+              <p class="text-sm text-olive-700 dark:text-olive-300 mt-3">
+                <%= component[:description] %>
+              </p>
+            </div>
+            <svg class="h-5 w-5 text-olive-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- Form Components -->
+  <div class="mt-12">
+    <h2 class="text-2xl font-display font-bold text-olive-900 dark:text-olive-100 mb-6">
+      Form Components
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <% @components.select { |_, c| c[:category] == 'Form' }.each do |key, component| %>
+        <%= link_to design_system_component_path(name: key),
+                    class: 'block bg-white dark:bg-olive-900 rounded-lg border border-olive-200 dark:border-olive-800 p-6 hover:border-olive-400 dark:hover:border-olive-600 transition-colors' do %>
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-lg font-semibold text-olive-900 dark:text-olive-100">
+                <%= component[:name] %>
+              </h3>
+              <p class="text-sm text-olive-500 dark:text-olive-400 mt-1">
+                <%= component[:class_name] %>
+              </p>
+              <p class="text-sm text-olive-700 dark:text-olive-300 mt-3">
+                <%= component[:description] %>
+              </p>
+            </div>
+            <svg class="h-5 w-5 text-olive-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- Layout Components -->
+  <div class="mt-12">
+    <h2 class="text-2xl font-display font-bold text-olive-900 dark:text-olive-100 mb-6">
+      Layout Components
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <% @components.select { |_, c| c[:category] == 'Layout' }.each do |key, component| %>
+        <%= link_to design_system_component_path(name: key),
+                    class: 'block bg-white dark:bg-olive-900 rounded-lg border border-olive-200 dark:border-olive-800 p-6 hover:border-olive-400 dark:hover:border-olive-600 transition-colors' do %>
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-lg font-semibold text-olive-900 dark:text-olive-100">
+                <%= component[:name] %>
+              </h3>
+              <p class="text-sm text-olive-500 dark:text-olive-400 mt-1">
+                <%= component[:class_name] %>
+              </p>
+              <p class="text-sm text-olive-700 dark:text-olive-300 mt-3">
+                <%= component[:description] %>
+              </p>
+            </div>
+            <svg class="h-5 w-5 text-olive-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,151 +1,307 @@
-# 🔨 Forja
+# Forja
 
 > *Spanish for "forge" — because every great app starts in the fire.*
 
-A Rails application template that gives you a production-ready foundation with a beautiful UI out of the box.
+Forja is an interactive CLI wizard to bootstrap new Rails applications with style. It generates a fully-configured Rails app with authentication, testing, and a beautiful UI theme out of the box.
 
 ## What You Get
 
-| Feature | Details |
-|---------|---------|
-| **Framework** | Rails 8.1+ with PostgreSQL |
-| **CSS** | Tailwind CSS v4 with the Oatmeal Olive theme (Instrument Serif + Inter) |
-| **Auth** | Devise with fully styled views — clean, no-label forms |
-| **Testing** | RSpec, FactoryBot, Shoulda Matchers (configured & ready) |
-| **AI Dev** | claude-on-rails for AI-assisted development with Claude Code |
+Every app forged with Forja includes:
 
-## Quick Start
-
-```bash
-rails new myapp -d postgresql --css=tailwind -m https://raw.githubusercontent.com/kurenn/forja/main/template.rb
-```
-
-That's it. One command. The template handles everything:
-
-1. Installs and configures all gems
-2. Sets up RSpec with FactoryBot & Shoulda Matchers
-3. Installs Devise with a `User` model
-4. Deploys custom auth views with the Oatmeal Olive design
-5. Applies the Tailwind theme (olive colors, Instrument Serif display font, Inter body font)
-6. Creates a home page with sign-in/sign-up links
-7. Creates and migrates the database
-8. Makes an initial git commit
-
-## After Creation
-
-```bash
-cd myapp
-
-# Set up claude-on-rails AI development agents (optional but recommended)
-rails generate claude_on_rails:swarm
-
-# Start the dev server
-bin/dev
-```
-
-Visit [http://localhost:3000](http://localhost:3000) and you'll see your app running with the Oatmeal Olive theme.
-
-## Design System
-
-The template uses the **Oatmeal Olive** theme from [Tailwind Plus](https://tailwindcss.com/plus) with the **Instrument** font variant:
-
-- **Display font:** Instrument Serif (headings, hero text)
-- **Body font:** Inter (everything else)
-- **Color palette:** Olive — warm, earthy tones based on oklch
-- **Dark mode:** Fully supported via Tailwind's `dark:` variant
-- **Auth forms:** "Simple, no labels" pattern from Tailwind UI — clean inputs with sr-only labels for accessibility
-
-### Color Palette
-
-| Token | Light | Dark |
-|-------|-------|------|
-| `olive-50` | Nearly white | — |
-| `olive-100` | Page background | — |
-| `olive-300` | Borders, dividers | — |
-| `olive-400` | Placeholder text | — |
-| `olive-500` | Muted text | — |
-| `olive-600` | Primary buttons, links | Accent |
-| `olive-700` | Body text | — |
-| `olive-900` | Heading text | — |
-| `olive-950` | Darkest | Page bg (dark mode) |
-
-### Usage in Views
-
-```erb
-<%# Display font (Instrument Serif) %>
-<h1 class="font-display text-4xl text-olive-950 dark:text-olive-50">
-  Welcome
-</h1>
-
-<%# Body text (Inter) %>
-<p class="font-sans text-olive-700 dark:text-olive-300">
-  Regular content uses Inter automatically.
-</p>
-
-<%# Primary button %>
-<button class="rounded-lg bg-olive-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-olive-500">
-  Get Started
-</button>
-
-<%# Input (no-label style) %>
-<input type="email" placeholder="Email address"
-  class="block w-full rounded-lg border-0 bg-white px-3.5 py-2.5 text-olive-950 shadow-sm ring-1 ring-inset ring-olive-300 placeholder:text-olive-400 focus:ring-2 focus:ring-inset focus:ring-olive-600 sm:text-sm/6">
-```
-
-## Customizing Devise Views
-
-All Devise views live in `app/views/devise/` and use the Oatmeal Olive design:
-
-```
-app/views/devise/
-├── sessions/
-│   └── new.html.erb              # Sign in
-├── registrations/
-│   ├── new.html.erb              # Sign up
-│   └── edit.html.erb             # Edit profile
-├── passwords/
-│   ├── new.html.erb              # Forgot password
-│   └── edit.html.erb             # Reset password
-├── confirmations/
-│   └── new.html.erb              # Resend confirmation
-└── shared/
-    ├── _error_messages.html.erb  # Validation errors
-    └── _links.html.erb           # Navigation links
-```
-
-Auth pages use a dedicated layout at `app/views/layouts/devise.html.erb` — minimal, centered, with just the olive background and Google Fonts.
-
-## Testing
-
-The test stack is configured and ready:
-
-```bash
-# Run all specs
-bundle exec rspec
-
-# Run a specific spec
-bundle exec rspec spec/models/user_spec.rb
-```
-
-FactoryBot syntax methods (`create`, `build`, etc.) are included globally. Shoulda Matchers are configured for Rails + RSpec.
-
-## AI Development with Claude
-
-After running `rails generate claude_on_rails:swarm`, you can use Claude Code with specialized AI agents:
-
-```bash
-# Start the AI development swarm
-claude-swarm
-```
-
-Then describe what you want to build in natural language and the agent swarm handles the rest.
+- **Rails 8+ with PostgreSQL** — Production-ready database setup
+- **Tailwind CSS** — Custom "Oatmeal Olive" theme with Instrument Serif & Inter fonts
+- **ViewComponent Library** — Pre-built UI components (buttons, forms, tables, modals, and more)
+- **Design System** — Interactive component showcase in development mode
+- **Devise Authentication** — User model with styled login/register views
+- **RSpec Testing** — Pre-configured with FactoryBot and Shoulda Matchers
+- **claude-on-rails** — AI-assisted development tools
 
 ## Prerequisites
 
-- Ruby 3.2+
-- Rails 8.1+
-- PostgreSQL
-- Node.js (for Tailwind CSS build)
+Before using Forja, ensure you have:
+
+- **Ruby 3.2+**
+- **Rails 8.0+** (`gem install rails`)
+- **PostgreSQL** installed and running
+- **Node.js** (for Tailwind CSS)
+
+Forja will check your Rails version before creating an app and provide clear instructions if an upgrade is needed.
+
+## Installation
+
+Install the gem:
+
+```bash
+gem install forja
+```
+
+Or add to your Gemfile:
+
+```ruby
+gem 'forja'
+```
+
+## Usage
+
+### Quick Start
+
+```bash
+forja new my_app
+```
+
+This will:
+1. Check that Rails 8.0+ is installed
+2. Prompt for app name and location (if not provided)
+3. Run `rails new` with PostgreSQL and Tailwind
+4. Copy component library and design system
+5. Copy JavaScript interactions and controllers
+6. Set up Devise authentication with custom views
+7. Configure RSpec, FactoryBot, and Shoulda Matchers
+8. Create and migrate the database
+9. Make an initial git commit
+
+### Command Options
+
+```bash
+# Interactive mode - prompts for everything
+forja new
+
+# Specify app name
+forja new my_app
+
+# Specify app name and path
+forja new my_app --path ~/projects
+
+# Show full Rails output
+forja new my_app --verbose
+
+# Disable colors
+forja new my_app --no-color
+```
+
+### Options Reference
+
+| Option | Description |
+|--------|-------------|
+| `--path PATH` | Directory to create the app in (default: current directory) |
+| `--verbose` | Show full Rails generation output |
+| `--no-color` | Disable colored output |
+
+### Environment Variables
+
+| Variable | Description |
+|----------|-------------|
+| `NO_COLOR` | When set, disables colored output |
+
+## Example Session
+
+```
+$ forja new my_app --path /tmp
+
+                              ⚒
+                           ╔═════╗
+                          ║ ⚒═══⚒ ║
+                         ║  FORJA  ║
+                          ║ ═════ ║
+                           ╚═════╝
+                         ≋≋≋≋≋≋≋≋≋≋≋
+                        ≋  🔥🔥🔥  ≋
+                       ≋≋≋≋≋≋≋≋≋≋≋≋≋
+                      ║███████████████║
+                      ║███████████████║
+                      ╚═══════════════╝
+
+Forja
+Forge Rails apps, fast.
+
+What is your app name? my_app
+
+[⠋] 🔨 Forging your Rails application…
+
+🔨 Forging component library from the Forja template...
+🔨 Molding JavaScript interactions...
+🔨 Sharpening test tools (RSpec, FactoryBot, Shoulda Matchers)...
+🔨 Hammering out authentication with Devise...
+🔨 Tempering configuration files...
+🔨 Polishing custom Devise views with Oatmeal Olive theme...
+🔨 Casting the database mold...
+🔨 Quenching the forge with an initial commit...
+
+✓ App forged successfully!
+
+🔨 App forged successfully!
+
+  App name:  my_app
+  Location:  /tmp/my_app
+
+  Included:
+    ✓ Rails + PostgreSQL
+    ✓ Tailwind CSS (Oatmeal Olive theme)
+    ✓ RSpec + FactoryBot + Shoulda Matchers
+    ✓ Devise authentication (User model)
+    ✓ Custom auth views
+    ✓ claude-on-rails gem
+    ✓ Component library & design system
+
+  Next steps:
+    cd /tmp/my_app
+    rails generate claude_on_rails:swarm
+    bin/dev
+
+  Visit http://localhost:3000/design_system in development to explore components!
+
+  Tip: Use --verbose for detailed output.
+```
+
+## Development
+
+### Setup
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/your-org/forja.git
+cd forja
+bundle install
+```
+
+### Running Forja Locally
+
+During development, use `bundle exec` to run the local version:
+
+```bash
+# Show help
+bundle exec exe/forja
+
+# Create a new app (interactive)
+bundle exec exe/forja new
+
+# Create a new app with name
+bundle exec exe/forja new test_app
+
+# Create in a specific directory
+bundle exec exe/forja new test_app --path /tmp
+
+# See full Rails output (useful for debugging)
+bundle exec exe/forja new test_app --path /tmp --verbose
+```
+
+### Running Tests
+
+```bash
+bundle exec rake spec
+```
+
+### Interactive Console
+
+Load Forja in an IRB session:
+
+```bash
+bin/console
+```
+
+Example:
+
+```ruby
+# Test validation
+Forja::Validation.valid_app_name?("my_app")  # => true
+Forja::Validation.valid_app_name?("123bad")  # => false
+
+# Create a spec manually
+spec = Forja::Spec.new(name: "test", path: "/tmp")
+spec.full_path  # => "/tmp/test"
+```
+
+### Project Structure
+
+```
+forja/
+├── exe/
+│   └── forja              # CLI entry point
+├── lib/
+│   ├── forja.rb           # Main module
+│   └── forja/
+│       ├── cli.rb         # Thor commands
+│       ├── wizard.rb      # Interactive prompts
+│       ├── runner.rb      # Rails generation
+│       ├── ui.rb          # Output formatting
+│       ├── spec.rb        # App configuration
+│       ├── validation.rb  # Input validation
+│       ├── errors.rb      # Custom errors
+│       └── version.rb     # Version constant
+├── templates/             # Files copied to generated apps
+│   ├── app/
+│   ├── devise/            # Custom auth views
+│   ├── layouts/
+│   └── tailwind.css       # Custom theme
+├── template.rb            # Rails application template
+└── spec/                  # RSpec tests
+```
+
+### How It Works
+
+1. **CLI** (`cli.rb`) parses arguments using Thor
+2. **Wizard** (`wizard.rb`) collects user input via TTY::Prompt
+3. **Spec** (`spec.rb`) stores the configuration as an immutable object
+4. **Runner** (`runner.rb`) executes `rails new` with the template
+5. **Template** (`template.rb`) configures the generated app:
+   - Adds gems (RSpec, Devise, etc.)
+   - Runs generators after bundle
+   - Copies custom views from `templates/`
+   - Creates database and runs migrations
+   - Makes initial git commit
+
+### Modifying the Template
+
+The main template logic is in `template.rb`. It uses Rails' template API:
+
+```ruby
+# Add gems
+gem 'devise'
+gem_group :test do
+  gem 'rspec-rails'
+end
+
+# Run after bundle install
+after_bundle do
+  generate 'devise:install'
+  generate 'devise', 'User'
+
+  # Copy files from templates/ directory
+  create_file 'app/views/...', forja_read('path/to/template')
+end
+```
+
+The `forja_read` helper reads files from the `templates/` directory.
+
+### Building and Installing Locally
+
+```bash
+# Build the gem
+gem build forja.gemspec
+
+# Install locally
+gem install ./forja-0.1.0.gem
+
+# Now you can use it without bundle exec
+forja new my_app
+```
+
+## Architecture
+
+| Class | Responsibility |
+|-------|----------------|
+| `Forja::CLI` | Thor commands, option parsing |
+| `Forja::Wizard` | Interactive prompts, user input |
+| `Forja::Runner` | Executes `rails new` with template |
+| `Forja::UI` | Banner, colors, formatted output |
+| `Forja::Spec` | Immutable app configuration |
+| `Forja::Validation` | App name and path validation |
+| `Forja::Errors` | Custom exception classes |
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub.
 
 ## License
 
