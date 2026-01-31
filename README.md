@@ -299,14 +299,6 @@ forja new my_app
 | `Forja::Validation` | App name and path validation |
 | `Forja::Errors` | Custom exception classes |
 
-## Roadmap
-
-- [ ] Template composition (pick features)
-- [ ] GitHub repository creation
-- [ ] Custom Rails options (database choice, etc.)
-- [ ] Configuration file support (`.forjarc`)
-- [ ] Update command for existing apps
-
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub.
