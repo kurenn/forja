@@ -5,12 +5,13 @@ require "time"
 
 module Forja
   class Spec
-    attr_reader :name, :path, :created_at
+    attr_reader :name, :path, :created_at, :render_deployment
 
-    def initialize(name:, path:, created_at: Time.now)
+    def initialize(name:, path:, created_at: Time.now, render_deployment: false)
       @name = name.freeze
       @path = Validation.normalize_path(path).freeze
       @created_at = created_at.freeze
+      @render_deployment = render_deployment
       freeze
     end
 
@@ -23,7 +24,8 @@ module Forja
         name: name,
         path: path,
         full_path: full_path,
-        created_at: created_at.iso8601
+        created_at: created_at.iso8601,
+        render_deployment: render_deployment
       }
     end
 

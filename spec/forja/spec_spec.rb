@@ -23,6 +23,15 @@ RSpec.describe Forja::Spec do
     it "is frozen" do
       expect(spec).to be_frozen
     end
+
+    it "sets render_deployment to false by default" do
+      expect(spec.render_deployment).to eq(false)
+    end
+
+    it "can set render_deployment to true" do
+      spec_with_render = described_class.new(name: "app", path: "/tmp", render_deployment: true)
+      expect(spec_with_render.render_deployment).to eq(true)
+    end
   end
 
   describe "#full_path" do
@@ -38,6 +47,7 @@ RSpec.describe Forja::Spec do
       expect(hash[:path]).to eq("/tmp")
       expect(hash[:full_path]).to eq("/tmp/my_app")
       expect(hash[:created_at]).to be_a(String)
+      expect(hash[:render_deployment]).to eq(false)
     end
   end
 

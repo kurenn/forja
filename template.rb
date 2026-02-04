@@ -212,7 +212,24 @@ after_bundle do
   generate 'claude_on_rails:swarm'
 
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  # 10. Git
+  # 10. Render Deployment (Optional)
+  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  if ENV['FORJA_RENDER_DEPLOYMENT'] == 'true'
+    forja_say 'Setting up Render deployment configuration...'
+
+    # Copy render-build.sh script
+    create_file 'bin/render-build.sh', forja_read('bin/render-build.sh'), force: true
+    chmod 'bin/render-build.sh', 0755
+
+    # Create render.yaml from template
+    render_yaml_template = forja_read('render.yaml.tt')
+    render_yaml_content = ERB.new(render_yaml_template).result(binding)
+    create_file 'render.yaml', render_yaml_content, force: true
+  end
+
+  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  # 11. Git
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   forja_say 'Quenching the forge with an initial commit...'
@@ -236,11 +253,24 @@ after_bundle do
   say '  ✅ Custom auth views (simple, no labels)'
   say '  ✅ claude-on-rails gem with swarm agents'
   say '  ✅ Component library & design system'
+  
+  if ENV['FORJA_RENDER_DEPLOYMENT'] == 'true'
+    say '  ✅ Render deployment configuration'
+  end
+  
   say ''
   say '  Next steps:', :yellow
   say "    cd #{app_name}"
   say '    bin/dev                                  # Start the server'
   say ''
+  
+  if ENV['FORJA_RENDER_DEPLOYMENT'] == 'true'
+    say '  To deploy on Render:', :yellow
+    say '    In the Render Dashboard, go to the Blueprint page and click New Blueprint Instance.'
+    say '    Select your repository (after giving Render the permission to access it, if you haven\'t already).'
+    say ''
+  end
+  
   say '  Visit http://localhost:3000 🚀'
   say ''
 end
