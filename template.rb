@@ -225,7 +225,8 @@ after_bundle do
 
   forja_say 'Setting up AI development agents with claude-on-rails...'
 
-  generate 'claude_on_rails:swarm'
+  # Auto-accept MCP Server setup by piping 'Y' to stdin
+  run 'yes | rails generate claude_on_rails:swarm', capture: true
 
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   # 11. Git
