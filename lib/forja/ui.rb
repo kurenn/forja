@@ -129,6 +129,20 @@ module Forja
     end
 
     def summary(spec)
+      included_items = [
+        "    #{pastel.green('✓')} Rails + PostgreSQL",
+        "    #{pastel.green('✓')} Tailwind CSS (Oatmeal Olive theme)",
+        "    #{pastel.green('✓')} RSpec + FactoryBot + Shoulda Matchers",
+        "    #{pastel.green('✓')} Devise authentication (User model)",
+        "    #{pastel.green('✓')} Custom auth views",
+        "    #{pastel.green('✓')} claude-on-rails gem with swarm agents",
+        "    #{pastel.green('✓')} Component library & design system"
+      ]
+
+      if spec.active_storage
+        included_items << "    #{pastel.green('✓')} Active Storage (file uploads)"
+      end
+
       [
         "",
         pastel.bold.green("🔨 App forged successfully!"),
@@ -137,13 +151,7 @@ module Forja
         "  #{pastel.bold('Location:')}  #{spec.full_path}",
         "",
         pastel.bold("  Included:"),
-        "    #{pastel.green('✓')} Rails + PostgreSQL",
-        "    #{pastel.green('✓')} Tailwind CSS (Oatmeal Olive theme)",
-        "    #{pastel.green('✓')} RSpec + FactoryBot + Shoulda Matchers",
-        "    #{pastel.green('✓')} Devise authentication (User model)",
-        "    #{pastel.green('✓')} Custom auth views",
-        "    #{pastel.green('✓')} claude-on-rails gem with swarm agents",
-        "    #{pastel.green('✓')} Component library & design system",
+        *included_items,
         "",
         pastel.bold("  Next steps:"),
         pastel.dim("    cd #{spec.full_path}"),

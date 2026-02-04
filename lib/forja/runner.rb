@@ -123,6 +123,8 @@ module Forja
       # Run the command outside of the current bundle context
       # This ensures rails is found from the system gems, not forja's bundle
       Bundler.with_unbundled_env do
+        # Pass spec configuration through environment variables
+        ENV['FORJA_ACTIVE_STORAGE'] = spec.active_storage.to_s
         cmd.run(command, chdir: spec.path)
       end
     end

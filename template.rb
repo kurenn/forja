@@ -154,7 +154,22 @@ after_bundle do
   copy_template_directory('config', 'config')
 
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  # 7. Devise Layout — Use dedicated auth layout
+  # 7. Active Storage (Optional)
+  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  if ENV['FORJA_ACTIVE_STORAGE'] == 'true'
+    forja_say 'Forging Active Storage for file uploads...'
+
+    # Install Active Storage
+    rails_command 'active_storage:install'
+
+    # Configure Active Storage to use local disk storage in development
+    environment "config.active_storage.service = :local", env: 'development'
+    environment "config.active_storage.service = :test", env: 'test'
+  end
+
+  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  # 8. Devise Layout — Use dedicated auth layout
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   forja_say 'Polishing custom Devise views with Oatmeal Olive theme...'
@@ -195,7 +210,7 @@ after_bundle do
   end
 
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  # 8. Database
+  # 9. Database
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   forja_say 'Casting the database mold...'
@@ -204,7 +219,7 @@ after_bundle do
   rails_command 'db:migrate'
 
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  # 9. AI-Assisted Development Tools
+  # 10. AI-Assisted Development Tools
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   forja_say 'Setting up AI development agents with claude-on-rails...'
@@ -212,7 +227,7 @@ after_bundle do
   generate 'claude_on_rails:swarm'
 
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  # 10. Git
+  # 11. Git
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   forja_say 'Quenching the forge with an initial commit...'
@@ -236,6 +251,7 @@ after_bundle do
   say '  ✅ Custom auth views (simple, no labels)'
   say '  ✅ claude-on-rails gem with swarm agents'
   say '  ✅ Component library & design system'
+  say '  ✅ Active Storage (file uploads)' if ENV['FORJA_ACTIVE_STORAGE'] == 'true'
   say ''
   say '  Next steps:', :yellow
   say "    cd #{app_name}"
