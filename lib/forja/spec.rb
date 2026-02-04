@@ -11,7 +11,7 @@ module Forja
       @name = name.freeze
       @path = Validation.normalize_path(path).freeze
       @created_at = created_at.freeze
-      @active_storage = active_storage
+      @active_storage = active_storage.freeze
       freeze
     end
 

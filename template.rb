@@ -164,8 +164,9 @@ after_bundle do
     rails_command 'active_storage:install'
 
     # Configure Active Storage to use local disk storage in development and test
-    environment "config.active_storage.service = :local", env: 'development'
-    environment "config.active_storage.service = :local", env: 'test'
+    %w[development test].each do |env|
+      environment "config.active_storage.service = :local", env: env
+    end
   end
 
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
