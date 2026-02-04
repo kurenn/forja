@@ -57,8 +57,8 @@ This will:
 5. Copy JavaScript interactions and controllers
 6. Set up Devise authentication with custom views
 7. Configure RSpec, FactoryBot, and Shoulda Matchers
-8. Set up claude-on-rails swarm agents for AI-assisted development
-9. Create and migrate the database
+8. Create and migrate the database
+9. Set up claude-on-rails swarm agents for AI-assisted development
 10. Make an initial git commit
 
 ### Command Options
