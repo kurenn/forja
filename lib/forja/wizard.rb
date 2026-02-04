@@ -15,8 +15,9 @@ module Forja
     def run(app_name: nil, path: nil)
       name = app_name || ask_app_name
       target_path = path || ask_path
+      active_storage = ask_active_storage
 
-      Spec.new(name: name, path: target_path)
+      Spec.new(name: name, path: target_path, active_storage: active_storage)
     end
 
     private
@@ -35,6 +36,10 @@ module Forja
         q.required true
         q.modify :strip
       end
+    end
+
+    def ask_active_storage
+      prompt.yes?("Do you want to install Active Storage for file uploads?", default: false)
     end
   end
 end

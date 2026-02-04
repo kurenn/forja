@@ -15,6 +15,7 @@ Every app forged with Forja includes:
 - **Devise Authentication** — User model with styled login/register views
 - **RSpec Testing** — Pre-configured with FactoryBot and Shoulda Matchers
 - **claude-on-rails** — AI-assisted development tools with swarm agents configured
+- **Active Storage (Optional)** — File upload capabilities with local disk storage in development
 
 ## Prerequisites
 
@@ -52,14 +53,16 @@ forja new my_app
 This will:
 1. Check that Rails 8.0+ is installed
 2. Prompt for app name and location (if not provided)
-3. Run `rails new` with PostgreSQL and Tailwind
-4. Copy component library and design system
-5. Copy JavaScript interactions and controllers
-6. Set up Devise authentication with custom views
-7. Configure RSpec, FactoryBot, and Shoulda Matchers
-8. Create and migrate the database
-9. Set up claude-on-rails swarm agents for AI-assisted development
-10. Make an initial git commit
+3. Ask if you want to install Active Storage for file uploads
+4. Run `rails new` with PostgreSQL and Tailwind
+5. Copy component library and design system
+6. Copy JavaScript interactions and controllers
+7. Set up Devise authentication with custom views
+8. Configure RSpec, FactoryBot, and Shoulda Matchers
+9. Set up Active Storage (if selected) with local disk storage for development
+10. Create and migrate the database
+11. Set up claude-on-rails swarm agents for AI-assisted development
+12. Make an initial git commit
 
 ### Command Options
 
@@ -116,6 +119,7 @@ Forja
 Forge Rails apps, fast.
 
 What is your app name? my_app
+Do you want to install Active Storage for file uploads? (Y/n) y
 
 [⠋] 🔨 Forging your Rails application…
 
@@ -123,6 +127,7 @@ What is your app name? my_app
 🔨 Molding JavaScript interactions...
 🔨 Sharpening test tools (RSpec, FactoryBot, Shoulda Matchers)...
 🔨 Hammering out authentication with Devise...
+🔨 Forging Active Storage for file uploads...
 🔨 Tempering configuration files...
 🔨 Polishing custom Devise views with Oatmeal Olive theme...
 🔨 Casting the database mold...
@@ -144,6 +149,7 @@ What is your app name? my_app
     ✓ Custom auth views
     ✓ claude-on-rails gem with swarm agents
     ✓ Component library & design system
+    ✓ Active Storage (file uploads)
 
   Next steps:
     cd /tmp/my_app

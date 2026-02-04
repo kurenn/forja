@@ -20,6 +20,15 @@ RSpec.describe Forja::Spec do
       expect(spec.created_at).to be_a(Time)
     end
 
+    it "sets active_storage to false by default" do
+      expect(spec.active_storage).to eq(false)
+    end
+
+    it "accepts active_storage parameter" do
+      spec = described_class.new(name: "app", path: "/tmp", active_storage: true)
+      expect(spec.active_storage).to eq(true)
+    end
+
     it "is frozen" do
       expect(spec).to be_frozen
     end
@@ -38,6 +47,13 @@ RSpec.describe Forja::Spec do
       expect(hash[:path]).to eq("/tmp")
       expect(hash[:full_path]).to eq("/tmp/my_app")
       expect(hash[:created_at]).to be_a(String)
+      expect(hash[:active_storage]).to eq(false)
+    end
+
+    it "includes active_storage when true" do
+      spec = described_class.new(name: "app", path: "/tmp", active_storage: true)
+      hash = spec.to_h
+      expect(hash[:active_storage]).to eq(true)
     end
   end
 
