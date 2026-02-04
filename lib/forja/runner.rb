@@ -123,6 +123,7 @@ module Forja
       # Run the command outside of the current bundle context
       # This ensures rails is found from the system gems, not forja's bundle
       Bundler.with_unbundled_env do
+        ENV['FORJA_RENDER_DEPLOYMENT'] = spec.render_deployment.to_s
         cmd.run(command, chdir: spec.path)
       end
     end

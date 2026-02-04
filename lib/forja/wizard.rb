@@ -15,8 +15,9 @@ module Forja
     def run(app_name: nil, path: nil)
       name = app_name || ask_app_name
       target_path = path || ask_path
+      include_render = ask_render_deployment
 
-      Spec.new(name: name, path: target_path)
+      Spec.new(name: name, path: target_path, render_deployment: include_render)
     end
 
     private
@@ -35,6 +36,10 @@ module Forja
         q.required true
         q.modify :strip
       end
+    end
+
+    def ask_render_deployment
+      prompt.yes?("Do you want to include Render deployment configuration?", default: false)
     end
   end
 end
