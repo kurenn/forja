@@ -12,3 +12,4 @@ spec/examples.txt
 
 tmp/
 .DS_Store
+vendor/bundle

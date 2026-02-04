@@ -204,7 +204,15 @@ after_bundle do
   rails_command 'db:migrate'
 
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  # 9. Git
+  # 9. AI-Assisted Development Tools
+  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  forja_say 'Setting up AI development agents with claude-on-rails...'
+
+  generate 'claude_on_rails:swarm'
+
+  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  # 10. Git
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   forja_say 'Quenching the forge with an initial commit...'
@@ -226,12 +234,11 @@ after_bundle do
   say '  ✅ RSpec + FactoryBot + Shoulda Matchers'
   say '  ✅ Devise (User model created)'
   say '  ✅ Custom auth views (simple, no labels)'
-  say '  ✅ claude-on-rails gem installed'
+  say '  ✅ claude-on-rails gem with swarm agents'
   say '  ✅ Component library & design system'
   say ''
   say '  Next steps:', :yellow
   say "    cd #{app_name}"
-  say '    rails generate claude_on_rails:swarm    # Set up AI dev agents'
   say '    bin/dev                                  # Start the server'
   say ''
   say '  Visit http://localhost:3000 🚀'

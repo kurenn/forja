@@ -142,12 +142,11 @@ module Forja
         "    #{pastel.green('✓')} RSpec + FactoryBot + Shoulda Matchers",
         "    #{pastel.green('✓')} Devise authentication (User model)",
         "    #{pastel.green('✓')} Custom auth views",
-        "    #{pastel.green('✓')} claude-on-rails gem",
+        "    #{pastel.green('✓')} claude-on-rails gem with swarm agents",
         "    #{pastel.green('✓')} Component library & design system",
         "",
         pastel.bold("  Next steps:"),
         pastel.dim("    cd #{spec.full_path}"),
-        pastel.dim("    rails generate claude_on_rails:swarm"),
         pastel.dim("    bin/dev"),
         ""
       ].join("\n")

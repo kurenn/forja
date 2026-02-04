@@ -14,7 +14,7 @@ Every app forged with Forja includes:
 - **Design System** — Interactive component showcase in development mode
 - **Devise Authentication** — User model with styled login/register views
 - **RSpec Testing** — Pre-configured with FactoryBot and Shoulda Matchers
-- **claude-on-rails** — AI-assisted development tools
+- **claude-on-rails** — AI-assisted development tools with swarm agents configured
 
 ## Prerequisites
 
@@ -58,7 +58,8 @@ This will:
 6. Set up Devise authentication with custom views
 7. Configure RSpec, FactoryBot, and Shoulda Matchers
 8. Create and migrate the database
-9. Make an initial git commit
+9. Set up claude-on-rails swarm agents for AI-assisted development
+10. Make an initial git commit
 
 ### Command Options
 
@@ -125,6 +126,7 @@ What is your app name? my_app
 🔨 Tempering configuration files...
 🔨 Polishing custom Devise views with Oatmeal Olive theme...
 🔨 Casting the database mold...
+🔨 Setting up AI development agents with claude-on-rails...
 🔨 Quenching the forge with an initial commit...
 
 ✓ App forged successfully!
@@ -140,12 +142,11 @@ What is your app name? my_app
     ✓ RSpec + FactoryBot + Shoulda Matchers
     ✓ Devise authentication (User model)
     ✓ Custom auth views
-    ✓ claude-on-rails gem
+    ✓ claude-on-rails gem with swarm agents
     ✓ Component library & design system
 
   Next steps:
     cd /tmp/my_app
-    rails generate claude_on_rails:swarm
     bin/dev
 
   Visit http://localhost:3000/design_system in development to explore components!
