@@ -4,12 +4,13 @@ services:
     runtime: ruby
     plan: free
     buildCommand: './bin/render-build.sh'
-    startCommand: './bin/rails server'
+    startCommand: 'bundle exec rails server'
     envVars:
       - key: DATABASE_URL
         fromDatabase:
           name: <%= app_name.downcase %>-db
           property: connectionString
+      # Add the value from config/master.key in the Render Dashboard
       - key: RAILS_MASTER_KEY
         sync: false
       - key: WEB_CONCURRENCY
